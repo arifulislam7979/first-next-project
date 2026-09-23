@@ -2,9 +2,8 @@ import BookCard from "./BookCard";
 import { IBook } from "../type";
 const getBooks = async (): Promise<IBook[]> => {
   try{
-    const baseUrl = process.env.NEXT_PUBLIC_SERVER_BASE_URL || 'http://localhost:3000';
 
-    const res = await fetch(`${baseUrl}/booksData.json`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`);
     const data = await res.json();
     return data;
   } catch (error) {
